@@ -1,7 +1,8 @@
 import dotenv from "dotenv";
 import TelegramBot from "node-telegram-bot-api";
 
-const bot = new TelegramBot(process.env.BOT_TOKEN);
+const bot = new TelegramBot(process.env.BOT_TOKEN, { webHook: true });
+bot.setWebHook(`${process.env.WEBHOOK_URL}/api/bot`);
 
 const STATES = {
   ASK_FEELING: "ASK_FEELING",
